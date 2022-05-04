@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.0//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_0.dtd">
+<struts-config>
+  <!-- ========== Data Source Configuration =============================== -->
+  <data-sources>
+    <data-source>
+        <set-property property="autoCommit" value="false" />
+        <set-property property="description" value="DESC" />
+        <set-property property="driverClass" value="oracle.jdbc.driver.OracleDriver" />
+        <set-property property="maxCount" value="6" />
+        <set-property property="minCount" value="2" />
+        <set-property property="password" value="tiger" />
+        <set-property property="url" value="jdbc:oracle:thin:@192.168.10.102:1521:lmdb1" />
+        <set-property property="user" value="scott" />
+    </data-source>
+  </data-sources>
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+<!-- Maintenance -->
+	<form-bean name="LogonForm" type="jp.co.lastminute.maintenance.LogonForm"/>
+<!-- Front -->
+	<!-- Newsletter -->
+	<form-bean  name="NewsLetterForm"
+                	 type="jp.co.lastminute.newsletter.NewsLetterForm" />
+	<form-bean  name="NewsLetterFormNW"
+               		 type="jp.co.lastminute.newsletter.NewsLetterFormNW" />
+        <form-bean  name="NewsLetterFormLCS"
+                         type="jp.co.lastminute.newsletter.NewsLetterFormLCS" />
+        <form-bean  name="NewsLetterFormCampaign"
+                         type="jp.co.lastminute.newsletter.NewsLetterFormCampaign" />
+
+
+	<!-- Entertainmente Ticket -->
+	<form-bean name="Entertainment.top.Form"
+			 type="jp.co.lastminute.Entertainment.top.Form" />
+	<form-bean name="Entertainment.detail.Form" 
+			 type="jp.co.lastminute.Entertainment.detail.Form" />
+	<form-bean name="Entertainment.allot.ProductRegistrationFrom"
+			 type="jp.co.lastminute.Entertainment.allot.ProductRegistrationFrom" />
+	<!-- DomesticFlight -->
+	<form-bean name="Dflight.top.Form" 
+			 type="jp.co.lastminute.Dflight.top.Form" />
+	<form-bean name="Dflight.detail.Form" 
+			 type="jp.co.lastminute.Dflight.detail.Form" />
+	<form-bean name="Dflight.allot.ProductRegistrationFrom"
+			 type="jp.co.lastminute.Dflight.allot.ProductRegistrationFrom" />
+	<form-bean name="Dflight.Calendar.Form" 
+			 type="jp.co.lastminute.Dflight.Calendar.Form" />
+	<!-- Restraunt -->
+	<form-bean name="Restraunt.model.Form"
+			 type="jp.co.lastminute.Restraunt.model.Form" />
+	<form-bean name="Restraunt.map.Form"
+			 type="jp.co.lastminute.Restraunt.map.Form" />
+	<form-bean name="Restraunt.top.Form"
+			 type="jp.co.lastminute.Restraunt.top.Form" />
+	<form-bean name="Restraunt.search.Form"
+			 type="jp.co.lastminute.Restraunt.search.Form" />
+	<form-bean name="Restraunt.detail.Form"
+			 type="jp.co.lastminute.Restraunt.detail.Form" />
+	<form-bean name="Restraunt.allot.ProductRegistrationFrom" 
+		         type="jp.co.lastminute.Restraunt.allot.ProductRegistrationFrom" />
+	<!-- Gift -->
+	<form-bean name="Gift.top.Form" 
+			 type="jp.co.lastminute.Gift.top.Form"/>
+	<form-bean name="Gift.detail.Form"
+         		 type="jp.co.lastminute.Gift.detail.Form"/>
+	<form-bean name="Gift.search.Form"
+          		 type="jp.co.lastminute.Gift.search.Form"/>
+	<form-bean name="Gift.allot.ProductRegistrationFrom"
+			 type="jp.co.lastminute.Gift.allot.ProductRegistrationFrom"/>
+	<!-- Hotel -->
+	<form-bean name="Hotel.top.Form"
+                         type="jp.co.lastminute.Hotel.top.Form"/>
+	<form-bean name="Hotel.detail.Form"
+                         type="jp.co.lastminute.Hotel.detail.Form"/>
+	<form-bean name="Hotel.search.Form"
+                         type="jp.co.lastminute.Hotel.search.Form"/>
+	<form-bean name="Hotel.allot.ProductRegistrationFrom"
+                         type="jp.co.lastminute.Hotel.allot.ProductRegistrationFrom"/>
+	<form-bean name="Hotel.HotelPopForm"
+                         type="jp.co.lastminute.Hotel.HotelPopForm"/>
+<!-- RetalGoods -->
+	<form-bean name="RentalGoods.allot.ProductRegistrationFrom"
+                         type="jp.co.lastminute.RentalGoods.allot.ProductRegistrationFrom" />
+<!-- Amusement -->
+        <form-bean name="Amusement.top.Form"
+                         type="jp.co.lastminute.Amusement.top.Form" />
+        <form-bean name="Amusement.detail.Form"
+                         type="jp.co.lastminute.Amusement.detail.Form" />
+        <form-bean name="Amusement.allot.ProductRegistrationFrom"
+                         type="jp.co.lastminute.Amusement.allot.ProductRegistrationFrom" />
+<!-- Cart Cancell -->
+	<form-bean name="cart.Cancell.CancellForm"
+			 type="jp.co.lastminute.cart.Cancell.CancellForm" />
+	<form-bean name="cart.Cancell.ModifyForm"
+			 type="jp.co.lastminute.cart.Cancell.ModifyForm" />
+<!-- Cart -->
+	<form-bean name="cart.cartForm"
+                         type="jp.co.lastminute.cart.cartForm" />
+	<form-bean name="cart.user.UserRegistrationForm"
+			 type="jp.co.lastminute.cart.user.UserRegistrationForm" />
+	<form-bean name="cart.user.UserLoginForm"
+			 type="jp.co.lastminute.cart.user.UserLoginForm" />
+	<form-bean name="cart.user.UserUpdateForm"
+                         type="jp.co.lastminute.cart.user.UserRegistrationForm" />
+  </form-beans>
+  <!-- ========== Global Forward Definitions ============================== -->
+  <!-- ========== Global Forward Definitions ============================== -->
+  <global-forwards>
+    <forward   name="logoff"               path="/logoff.do"/>
+    <forward   name="logon"                path="/logon.jsp"/>
+    <forward   name="success"              path="/index.jhtml"/>
+    <forward name="fail"                   path="/index.jhtml"/>
+  </global-forwards>
+  <!-- ========== Action Mapping Definitions ============================== -->
+  <action-mappings>
+
+
+<!-- Maintenance -->	
+	<action path="/maintenance/logon"
+               	type="jp.co.lastminute.maintenance.LogonAction"
+             	name="LogonForm"
+	   	scope="request"
+	   	input="/maintenance/logon.jsp">
+		<forward name="success"		 path="/maintenance/index.jsp"/>
+		<forward name="system_fail"      path="/maintenance/system_error.jsp"/>
+    	</action>
+<!-- Front -->
+	<!-- Newsletter -->
+	<action path="/newsletter/NewsLetterFix"
+             	type="jp.co.lastminute.newsletter.NewsLetterFixAction"
+             	name="NewsLetterForm"
+             	scope="request"
+             	input="/newsletter/newsletter.jsp">
+             	<forward name="success" path="/newsletter/newsletter_fix.jsp" />
+    	</action>
+	<action  path="/newsletter/NewsLetter"
+             	type="jp.co.lastminute.newsletter.NewsLetterAction"
+             	name="NewsLetterForm"
+             	scope="request"
+             	input="/newsletter/newsletter_fix.jsp">
+             	<forward name="success" path="/newsletter/newsletter_thanks.jsp" />
+    	</action>
+	<action  path="/newsletter/NewsDelLetterFix"
+             	type="jp.co.lastminute.newsletter.NewsDelLetterFixAction"
+             	name="NewsLetterForm"
+             	scope="request"
+             	input="/newsletter/newsdelletter.jsp">
+             	<forward name="success" path="/newsletter/newsdelletter_fix.jsp" />
+    	</action>
+	<action  path="/newsletter/NewsDelLetter"
+             	type="jp.co.lastminute.newsletter.NewsDelLetterAction"
+             	name="NewsLetterForm"
+             	scope="request"
+             	input="/newsletter/newsdelletter_fix.jsp">
+             	<forward name="success" path="/newsletter/newsdelletter_ok.jsp" />
+    	</action>
+	<action  path="/newsletter/NewsLetterNWFix"
+             	type="jp.co.lastminute.newsletter.NewsLetterNWFixAction"
+             	name="NewsLetterFormNW"
+             	scope="request"
+             	input="/newsletter/newsletterNW.jsp">
+    	 	<forward name="success" path="/newsletter/newsletterNW_fix.jsp" />
+    	</action>
+    	<action  path="/newsletter/NewsLetterNW"
+             	type="jp.co.lastminute.newsletter.NewsLetterNWAction"
+             	name="NewsLetterFormNW"
+             	scope="request"
+             	input="/newsletter/newsletterNW_fix.jsp">
+             	<forward name="success" path="/newsletter/newsletterNW_thanks.jsp" />
+    	</action>
+
+        <action  path="/newsletter/NewsLetterLCSFix"
+                type="jp.co.lastminute.newsletter.NewsLetterLCSFixAction"
+                name="NewsLetterFormLCS"
+                scope="request"
+                input="/newsletter/newsletterLCS.jsp">
+                <forward name="success" path="/newsletter/newsletterLCS_fix.jsp" />
+        </action>
+        <action  path="/newsletter/NewsLetterLCS"
+                type="jp.co.lastminute.newsletter.NewsLetterLCSAction"
+                name="NewsLetterFormLCS"
+                scope="request"
+                input="/newsletter/newsletterLCS_fix.jsp">
+                <forward name="success" path="/newsletter/newsletterLCS_thanks.jsp" />
+        </action>
+
+        <action  path="/newsletter/NewsLetterCampaignFix"
+                type="jp.co.lastminute.newsletter.NewsLetterCampaignFixAction"
+                name="NewsLetterFormCampaign"
+                scope="request"
+                input="/newsletter/newsletterCampaign.jsp">
+                <forward name="success" path="/newsletter/newsletterCampaign_fix.jsp" />
+        </action>
+        <action  path="/newsletter/NewsLetterCampaign"
+                type="jp.co.lastminute.newsletter.NewsLetterCampaignAction"
+                name="NewsLetterFormCampaign"
+                scope="request"
+                input="/newsletter/newsletterCampaign_fix.jsp">
+                <forward name="success" path="/newsletter/newsletterCampaign_thanks.jsp" />
+        </action>
+
+
+
+
+
+
+
+	<!-- Entertainment -->
+	<action path="/Entertainment/top"
+                type="jp.co.lastminute.Entertainment.top.FormAction"
+                name="Entertainment.top.Form"
+                scope="request"
+                input="/Entertainment/top.jsp">
+                <forward name="success" path="/Entertainment/top.jsp" />
+                <forward name="failure" path="/Entertainment/topfail.jsp" />
+  	</action>
+	<action  path="/Entertainment/detail"
+                type="jp.co.lastminute.Entertainment.detail.FormAction"
+                name="Entertainment.detail.Form"
+                scope="request"
+                input="/Entertainment/detailnfo.jsp">
+                <forward name="dbfail" path="/Entertainment/dbfail.jsp" />
+                <forward name="mappingfail" path="/Entertainment/mappingfail.jsp" />
+                <forward name="success" path="/Entertainment/detail.jsp" />
+        </action>
+	<action path="/Entertainment/cartRegistration"
+                type="jp.co.lastminute.Entertainment.allot.ProductRegistrationAction"
+                name="Entertainment.allot.ProductRegistrationFrom"
+                scope="request"
+                input="/Entertainment/detail.jsp">
+                <forward name="success" path="/cart/CartIn.jsp" />
+                <forward name="failure" path="/Entertainment/system_error_reg.jsp" />
+                <forward name="registration_fail" path="/Entertainment/system_error_reg.jsp"/>
+                <forward name="registration_token_fail" path="/Entertainment/system_error_reg_token.jsp"/>
+        </action>
+	<!-- DomesticFlight -->
+	<action path="/Dflight/top"
+        	type="jp.co.lastminute.Dflight.top.FormAction"
+            	name="Dflight.top.Form"
+            	scope="request"
+                input="/Dflight/toperror.jsp">
+            	<forward name="success" path="/Dflight/top.jsp" />
+        </action>
+	<action path="/Dflight/detail"
+        	type="jp.co.lastminute.Dflight.detail.FormAction"
+        	name="Dflight.detail.Form"
+        	scope="request"
+                input="/Dflight/detailerror.jsp">
+        	<forward name="dbfail" path="/Dflight/dbfail.jsp" />
+        	<forward name="mappingfail" path="/Dflight/mappingfail.jsp" />
+        	<forward name="success" path="/Dflight/detail.jsp" />
+        </action>
+	<action path="/Dflight/Calendar"
+        	type="jp.co.lastminute.Dflight.Calendar.FormAction"
+        	name="Dflight.Calendar.Form"
+        	scope="request">
+        	<forward name="fail" path="/Dflight/Calendar/fail.jsp" />
+        	<forward name="success" path="/Dflight/Calendar/success.jsp" />
+        </action>
+	<action  path="/Dflight/cartRegistration"
+        	type="jp.co.lastminute.Dflight.allot.ProductRegistrationAction"
+        	name="Dflight.allot.ProductRegistrationFrom"
+        	scope="request"
+        	input="/Dflight/detail.jsp">
+		<forward name="success" path="/cart/CartIn.jsp" />
+                <forward name="failure" path="/Dflight/system_error_reg.jsp" />
+                <forward name="no_product" path="/cart/no_product.jsp" />
+            	<forward name="no_login" path="/cart/no_login.jsp" />
+        	<forward name="registration_fail"       path="/Dflight/system_error_reg.jsp"/>
+                <forward name="registration_token_fail" path="/Dflight/system_error_reg_token.jsp"/>
+        </action>
+	<!-- Restraunt -->
+		<action  path="/Restraunt/top"
+	      	type="jp.co.lastminute.Restraunt.top.FormAction"
+	   	name="Restraunt.top.Form"
+		scope="request"
+		input="/Restraunt/top.jsp">
+		<forward name="success" path="/Restraunt/top.jsp" />
+	</action>
+	<action  path="/Restraunt/search"
+	      	type="jp.co.lastminute.Restraunt.search.FormAction"
+	        name="Restraunt.search.Form"
+	        scope="request"
+	        input="/Restraunt/search.jsp">
+	        <forward name="nodata" path="/Restraunt/searchnodata.jsp" />
+	        <forward name="dbfail" path="/Restraunt/searchdbfail.jsp" />
+	        <forward name="mappingfail" path="/Restraunt/mappingfail.jsp" />
+	        <forward name="timeout" path="/Restraunt/timeout.jsp" />
+	        <forward name="success" path="/Restraunt/search.jsp" />
+	</action>
+	<action  path="/Restraunt/detail"
+	      	type="jp.co.lastminute.Restraunt.detail.FormAction"
+	        name="Restraunt.detail.Form"
+	        scope="request"
+	        input="/Restraunt/detailnfo.jsp">
+	        <forward name="dbfail" path="/Restraunt/dbfail.jsp" />
+	        <forward name="mappingfail" path="/Restraunt/mappingfail.jsp" />
+	        <forward name="success" path="/Restraunt/detail.jsp" />
+	</action>
+	<action path="/Restraunt/menu" 
+		type="jp.co.lastminute.Restraunt.model.FormAction" 
+		name="Restraunt.model.Form" 
+		scope="request" 
+		input="/Restraunt/detail.jsp">
+		<forward name="success" path="/Restraunt/menu.jsp" />
+	</action>
+	<action path="/Restraunt/map" 
+		type="jp.co.lastminute.Restraunt.map.FormAction" 
+		name="Restraunt.map.Form" 
+		scope="request" 
+		input="/Restraunt/detail.jsp">
+		<forward name="success" path="/Restraunt/map.jsp" />
+	</action>
+	<action  path="/Restraunt/cartRegistration"
+	      	type="jp.co.lastminute.Restraunt.allot.ProductRegistrationAction"
+	        name="Restraunt.allot.ProductRegistrationFrom"
+	        scope="request"
+	        input="/Restraunt/detail.jsp">
+	        <forward name="success" path="/cart/CartIn.jsp" />
+		<forward name="failure" path="/Restraunt/system_error_reg.jsp" />
+		<forward name="no_product" path="/cart/no_product.jsp" />
+	 	<forward name="no_login" path="/cart/no_login.jsp" />
+	        <forward name="registration_fail" path="/Restraunt/system_error_reg.jsp"/>
+		<forward name="registration_token_fail"	path="/Restraunt/system_error_reg_token.jsp"/>
+	</action>
+	<!-- Gift -->
+	<action  path="/Gift/top"
+                type="jp.co.lastminute.Gift.top.FormAction"
+                name="Gift.top.Form"
+                scope="request"
+                input="/Gift/top.jsp">
+                <forward name="success" path="/Gift/top.jsp" />
+                <forward name="failure" path="/Gift/topfail.jsp" />
+        </action>
+	<action  path="/Gift/detail"
+                type="jp.co.lastminute.Gift.detail.FormAction"
+                name="Gift.detail.Form"
+                scope="request"
+                input="/Gift/detailnfo.jsp">
+                <forward name="dbfail" path="/Gift/dbfail.jsp" />
+                <forward name="mappingfail" path="/Gift/mappingfail.jsp" />
+                <forward name="success" path="/Gift/detail.jsp" />
+        </action>
+	<action  path="/Gift/search"
+                type="jp.co.lastminute.Gift.search.FormAction"
+                name="Gift.search.Form"
+                scope="request"
+                input="/Gift/search.jsp">
+                <forward name="nodata" path="/Gift/searchnodata.jsp" />
+                <forward name="dbfail" path="/Gift/searchdbfail.jsp" />
+                <forward name="mappingfail" path="/Gift/mappingfail.jsp" />
+                <forward name="success" path="/Gift/search.jsp" />
+        </action>
+	<action path="/Gift/cartRegistration"
+                type="jp.co.lastminute.Gift.allot.ProductRegistrationAction"
+                name="Gift.allot.ProductRegistrationFrom"
+                scope="request"
+                input="/Gift/detail.jsp">
+                <forward name="success" path="/cart/CartIn.jsp" />
+                <forward name="failure" path="/Gift/system_error_reg.jsp" />
+                <forward name="registration_fail" path="/Gift/system_error_reg.jsp"/>
+                <forward name="registration_token_fail" path="/Gift/system_error_reg_token.jsp"/>
+        </action>
+	<!-- Hotel -->
+	<action  path="/Hotel/top"
+                type="jp.co.lastminute.Hotel.top.FormAction"
+                name="Hotel.top.Form"
+                scope="request"
+                input="/Hotel/top.jsp">
+                <forward name="success" path="/Hotel/top.jsp" />
+                <forward name="failure" path="/Hotel/topfail.jsp" />
+        </action>
+	<action  path="/Hotel/detail"
+                type="jp.co.lastminute.Hotel.detail.FormAction"
+                name="Hotel.detail.Form"
+                scope="request"
+                input="/Hotel/detailnfo.jsp">
+                <forward name="dbfail" path="/Hotel/dbfail.jsp" />
+                <forward name="mappingfail" path="/Hotel/mappingfail.jsp" />
+                <forward name="success" path="/Hotel/detail.jsp" />
+		<forward name="success_lmj" path="/Hotel/detail_lmj.jsp" />
+		<forward name="success_knt" path="/Hotel/detail_knt.jsp" />
+		<forward name="success_nta" path="/Hotel/detail_nta.jsp" />
+        </action>
+	<action  path="/Hotel/search"
+                type="jp.co.lastminute.Hotel.search.FormAction"
+                name="Hotel.search.Form"
+                scope="request"
+                input="/Hotel/top.jsp">
+                <forward name="nodata" path="/Hotel/searchnodata.jsp" />
+                <forward name="dbfail" path="/Hotel/searchdbfail.jsp" />
+                <forward name="mappingfail" path="/Hotel/mappingfail.jsp" />
+                <forward name="success" path="/Hotel/search.jsp" />
+		<forward name="areaview" path="/Hotel/areasearch.jsp" />
+        </action>
+	<action path="/Hotel/checkAllote"
+                type="jp.co.lastminute.Hotel.detail.CheckAllotAction"
+                name="Hotel.detail.Form"
+                scope="request"
+                input="/Hotel/detail.jsp">
+		<forward name="success" path="/Hotel/detail.jsp" />
+		<forward name="success_lmj" path="/Hotel/detail_lmj.jsp" />
+		<forward name="success_knt" path="/Hotel/detail_knt.jsp" />
+		<forward name="success_nta" path="/Hotel/detail_nta.jsp" />
+                <forward name="showallot" path="/Hotel/showAllote.jsp" />
+		<forward name="failure" path="/Hotel/system_error_reg.jsp" />
+		<forward name="dbfail" path="/Hotel/dbfail.jsp" />
+                <forward name="mappingfail" path="/Hotel/system_error_reg_token.jsp"/>
+        </action>
+	<action path="/Hotel/cartRegistration"
+                type="jp.co.lastminute.Hotel.allot.ProductRegistrationAction"
+                name="Hotel.allot.ProductRegistrationFrom"
+                scope="request"
+                input="/Hotel/detail.jsp">
+                <forward name="success" path="/cart/CartIn.jsp" />
+                <forward name="failure" path="/Hotel/system_error_reg.jsp" />
+                <forward name="registration_fail" path="/Hotel/system_error_reg.jsp"/>
+                <forward name="registration_token_fail" path="/Hotel/system_error_reg_token.jsp"/>
+        </action>
+	<action path="/Hotel/Popup"
+                type="jp.co.lastminute.Hotel.HotelPopAction"
+                name="Hotel.HotelPopForm"
+                scope="request"
+                input="/Hotel/pop.jsp">
+                <forward name="success" path="/Hotel/pop.jsp" />
+                <forward name="redirect" path="/Hotel/redirect.jsp" />
+                <forward name="failure" path="/Hotel/close.jsp"/>
+        </action>
+	<!-- Amusement -->
+	<action  path="/Amusement/top"
+                type="jp.co.lastminute.Amusement.top.FormAction"
+                name="Amusement.top.Form"
+                scope="request"
+                input="/Amusement/top.jsp">
+		<forward name="index" path="/Amusement/index.jsp" />	
+                <forward name="success" path="/Amusement/top.jsp" />
+                <forward name="failure" path="/Amusement/topfail.jsp" />
+        </action>
+        <action  path="/Amusement/detail"
+                type="jp.co.lastminute.Amusement.detail.FormAction"
+                name="Amusement.detail.Form"
+                scope="request"
+                input="/Amusement/detailnfo.jsp">
+                <forward name="dbfail" path="/Amusement/dbfail.jsp" />
+                <forward name="mappingfail" path="/Amusement/mappingfail.jsp" />
+                <forward name="success" path="/Amusement/detail.jsp" />
+        </action>
+        <action path="/Amusement/cartRegistration"
+                type="jp.co.lastminute.Amusement.allot.ProductRegistrationAction"
+                name="Amusement.allot.ProductRegistrationFrom"
+                scope="request"
+                input="/Amusement/detail.jsp">
+                <forward name="success" path="/cart/CartIn.jsp" />
+                <forward name="failure" path="/Amusement/system_error_reg.jsp" />
+                <forward name="registration_fail" path="/Amusement/system_error_reg.jsp"/>
+                <forward name="registration_token_fail" path="/Amusement/system_error_reg_token.jsp"/>
+        </action>
+<!-- RentalGoods -->
+	<action path="/RentalGoods/cartRegistration"
+                type="jp.co.lastminute.RentalGoods.allot.ProductRegistrationAction"
+                name="RentalGoods.allot.ProductRegistrationFrom"
+                scope="request"
+                input="/RentalGoods/REntalcase001.jsp">
+                <forward name="success" path="/cart/CartIn.jsp" />
+                <forward name="failure" path="/RentalGoods/system_error_reg.jsp" />
+                <forward name="registration_fail" path="/RentalGoods/system_error_reg.jsp"/>
+                <forward name="registration_token_fail" path="/RentalGoods/system_error_reg_token.jsp"/>
+        </action>
+<!-- Cart -->
+	<action path="/cart/CartIn"
+        	type="jp.co.lastminute.cart.cartAction"
+            	name="cart.cartForm"
+            	scope="request"
+            	input="/cart/CartIn.jsp">
+            	<forward name="no_product" path="/cart/no_product.jsp" />
+            	<forward name="no_login" path="/cart/no_login.jsp" />
+            	<forward name="complete" path="/cart/complete.jsp" />
+        </action>
+	<action  path="/cart/Cancell"
+       		 type="jp.co.lastminute.cart.Cancell.CancellAction"
+        	 name="cart.Cancell.CancellForm"
+        	 scope="request"
+        	 input="/cart/Cansell/login.jsp">
+        	<forward name="loginfail" path="/cart/Cansell/login.jsp" />
+        	<forward name="cansellfail" path="/cart/Cansell/cansellfail.jsp" />
+        	<forward name="cansellsuccess" path="/cart/Cansell/cansellsuccess.jsp" />
+        </action>
+        <action path="/cart/Modify"
+                type="jp.co.lastminute.cart.Cancell.ModifyAction"
+                name="cart.Cancell.ModifyForm"
+                scope="request"
+                input="/cart/Cansell/modify.jsp">
+                <forward name="modifysuccess" path="/cart/Cansell/modifysuccess.jsp" />
+                <forward name="preview" path="/cart/Cansell/modifypreview.jsp" />
+                <forward name="modifydamaged" path="/cart/Cansell/modifydamaged.jsp" />
+                <forward name="modifyfail" path="/cart/Cansell/modifyfail.jsp" />
+        </action>
+	<action path="/cart/user/UserRegistration"
+                type="jp.co.lastminute.cart.user.UserRegistrationAction"
+                name="cart.user.UserRegistrationForm"
+                scope="request"
+                input="/cart/user/regist.jsp">
+                <forward name="success_fail" path="/cart/CartIn.jsp" />
+        </action>
+	<action path="/cart/user/UserUpdate"
+                type="jp.co.lastminute.cart.user.UserUpdateAction"
+                name="cart.user.UserUpdateForm"
+                scope="request"
+                input="/cart/user/UserUpdate.jsp">
+                <forward name="success_fail" path="/cart/user/UserUpdateComplate.jsp" />
+		<forward name="notlogin" path="/cart/user/notlogin.jsp" />
+        </action>
+        <action path="/cart/user/UserLogin"
+                type="jp.co.lastminute.cart.user.UserLoginAction"
+                name="cart.user.UserLoginForm"
+                scope="request"
+                input="/cart/user/login.jsp">
+                <forward name="success" path="/cart/CartIn.jsp" />
+                <forward name="modify" path="/cart/user/regist.jsp" />
+        </action>
+  </action-mappings>
+</struts-config>

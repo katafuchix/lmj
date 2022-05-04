@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageaomount>
+<jan_cd>1053</jan_cd>
+<agt_product_cd>42-024</agt_product_cd>
+<agt_cd>TSC</agt_cd>
+<product_type>93</product_type>
+<product_name><![CDATA[宇宙食デザ-トセット]]></product_name>
+<product_sub_title><![CDATA[商品概要サブタイトル]]></product_sub_title>
+<catchcopy><![CDATA[キャッチコピ-（全角1000文字）]]></catchcopy>
+<price_catch><![CDATA[価格キャッチコピ-（全角250文字）]]></price_catch>
+<opening><![CDATA[公開情報]]></opening>
+<specword><![CDATA[仕様・性能・使用方法（全角1000文字）]]></specword>
+<moreinfo><![CDATA[もっと情報（注意事項）（全角1500文字）]]></moreinfo>
+<c_coment><![CDATA[コマ-シャルコメント（全角1500文字）]]></c_coment>
+<body><![CDATA[本文かもね（全角1500文字）]]></body>
+<havealt>0</havealt>
+<price>3000</price>
+<pricestr><![CDATA[3,000]]></pricestr>
+<tax>150</tax>
+<taxstr><![CDATA[150]]></taxstr>
+<sending>20031111</sending>
+<sending_tax>5</sending_tax>
+<sending_calc_unit>8</sending_calc_unit>
+<first_name><![CDATA[株式会社ツーリストサービス]]></first_name>
+<lastname><![CDATA[竹之内　茂生]]></lastname>
+<linkedurl><![CDATA[リンクURL（半角128文字）]]></linkedurl>
+</pageaomount>

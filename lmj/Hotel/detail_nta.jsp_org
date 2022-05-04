@@ -1,0 +1,408 @@
+<%@ page contentType="text/html;charset=Shift_JIS" %>
+<%@ page language="java" %>
+<%@ page import="java.io.*,
+								 java.util.*,
+								 jp.co.yobrain.util.*,
+								 jp.co.lastminute.Hotel.detail.Form" %>
+<%@ taglib uri="/WEB-INF/c.tld" prefix="c" %>
+<%@ taglib uri="/WEB-INF/x.tld" prefix="xml" %>
+<%@ taglib uri="/WEB-INF/fmt.tld" prefix="fmt" %>
+<%
+	Form form = (Form)request.getAttribute( "Hotel.detail.Form" );
+	if( form == null ){
+		form = new Form();
+	}
+	String xmlstring = form.getXmlstring();
+%>
+<c:set var="xmlstr" ><%= xmlstring %></c:set><xml:parse var="ROWSET" xml="${xmlstr}"></xml:parse>
+
+<!-- ホテルインフォ -->
+<table WIDTH="100%" CELLPADDING="3" CELLSPACING="1" BORDER="0">
+	<tr>
+		<td CLASS="b" BGCOLOR="#EEEEEE" WIDTH="100">チェックイン</td>
+		<td BGCOLOR="#FFFFFF" WIDTH="88"><xml:out select='$ROWSET//ROWSET/ROW/CHECKINXML/CHECKINTIME/EARLY'/>
+		<xml:out select='$ROWSET//ROWSET/ROW/CHECKINXML/CHECKIN'/></td>
+		<td CLASS="b" BGCOLOR="#EEEEEE" WIDTH="100">チェックアウト</td>
+		<td BGCOLOR="#FFFFFF" WIDTH="89"><xml:out select='$ROWSET//ROWSET/ROW/CHECKINXML/CHECKOUT'/></td>
+	</tr>
+
+	<tr>
+		<td CLASS="b" BGCOLOR="#EEEEEE">総客室数</td>
+		<td COLSPAN="3" BGCOLOR="#FFFFFF"><xml:out select='$ROWSET//ROWSET/ROW/HTLRMS'/>室</td>
+		<xml:if select="$ROWSET//ROWSET/ROW/HTLNP[not(.='')] ">
+		<td BGCOLOR="#FFFFFF">
+		<xml:out select='$ROWSET//ROWSET/ROW/HTLNP' />名
+		</td>
+	</xml:if>
+	</tr>
+
+	<tr>
+		<td CLASS="b" BGCOLOR="#EEEEEE">開業年</td>
+		<td COLSPAN="3" BGCOLOR="#FFFFFF"><xml:out select='$ROWSET//ROWSET/ROW/HTLEST'/>年</td>
+	</tr>
+
+	<xml:if select="$ROWSET//ROWSET/ROW/HTLRNV[not(.=0) and not(.='')]">
+	<tr>
+		<td CLASS="b" BGCOLOR="#EEEEEE">改装年</td>
+		<td COLSPAN="3" BGCOLOR="#FFFFFF">
+		<xml:out select='$ROWSET//ROWSET/ROW/HTLRNV'/>年
+		</td>
+	</tr>
+	</xml:if>
+
+	<tr>
+		<td CLASS="b" BGCOLOR="#EEEEEE">交通機関</td>
+		<td COLSPAN="3" BGCOLOR="#FFFFFF">
+		<xml:if select="$ROWSET//ROWSET/ROW/NERSTN[not(.=0) and not(.='')]">
+			最寄り駅：<xml:out select='$ROWSET//ROWSET/ROW/NERSTN' escapeXml="false" /><br>
+		</xml:if>
+
+		<xml:if select="$ROWSET//ROWSET/ROW/TRAFICXML[not(.=0) and not(.='')]">
+			アクセス：<xml:out select='$ROWSET//ROWSET/ROW/TRAFICXML' escapeXml="false" /><br>
+		</xml:if>
+
+		<xml:if select="$ROWSET//ROWSET/ROW/HIGHWAY[not(.=0) and not(.='')]">
+			高速道路：<xml:out select='$ROWSET//ROWSET/ROW/HIGHWAY'  escapeXml="false" /><br>
+		</xml:if>
+
+		<xml:if select="$ROWSET//ROWSET/ROW/OTHWAY[not(.=0) and not(.='')]">
+			その他交通機関：<xml:out select='$ROWSET//ROWSET/ROW/OTHWAY' escapeXml="false" />
+		</xml:if>
+
+		</td>
+	</tr>
+	<tr>
+		<td CLASS="b" BGCOLOR="#EEEEEE">駐車場</td>
+		<td COLSPAN="3" BGCOLOR="#FFFFFF">
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/PARKING_OF_ONE_NIGHT[not(.='')]" >
+				駐車場１泊あたりの料金：<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/PARKING_OF_ONE_NIGHT'/><br/>
+			</xml:if>
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/TYPE_OF_PARKING[not(.='')]" >			
+				駐車場の形態：<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/TYPE_OF_PARKING'/><br/>
+			</xml:if>
+		</td>
+	</tr>
+	<tr>
+		<td CLASS="b" BGCOLOR="#EEEEEE">館内サービス</td>
+		<td COLSPAN="3" BGCOLOR="#FFFFFF">
+			<xml:if select="$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/CLEANING[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/CLEANING'/><br/>
+			</xml:if>
+			<xml:if select="$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/COPY[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/COPY'/><br/>
+			</xml:if>
+			<xml:if select="$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/SILVER[not(.='')]">
+				<xml:out select='$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/SILVER'/><br/>
+			</xml:if>
+			<xml:if select="$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/FAX[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/FAX'/><br/>
+			</xml:if>
+			<xml:if select="$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/RELAX[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/RELAX'/><br/>
+			</xml:if>
+			<xml:if select="$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/ROOMSERVICE[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/ROOMSERVICE'/><br/>
+			</xml:if>
+			<xml:if select="$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/LATECHECKIN[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/LATECHECKIN'/><br/>
+			</xml:if>
+			<xml:if select="$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/LATECHECKOUT[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/LATECHECKOUT'/><br/>
+			</xml:if>
+			<xml:if select="$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/FOREIGN[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/FOREIGN'/><br/>
+			</xml:if>
+			<xml:if select="$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/CITYMAP[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/CITYMAP'/><br/>
+			</xml:if>
+			<xml:if select="$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/WHEELCHAIR[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/WHEELCHAIR'/><br/>
+			</xml:if>
+			<xml:if select="$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/SIGNLANG[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/SIGNLANG'/><br/>
+			</xml:if>
+			<xml:if select="$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/HOMEDERIVERRY[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/HOMEDERIVERRY'/><br/>
+			</xml:if>
+			<xml:if select="$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/MORNING_NEWSPAPER[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/MORNING_NEWSPAPER'/><br/>
+			</xml:if>
+			<xml:if select="$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/GUIDEDOG[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/GUIDEDOG'/><br/>
+			</xml:if>
+			<xml:if select="$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/SHATLE[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/SHATLE'/><br/>
+			</xml:if>
+			<xml:if select="$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/EVENING_PAPER[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/EVENING_PAPER'/>
+			</xml:if>
+		</td>
+	</tr>
+	<tr>
+		<td CLASS="b" BGCOLOR="#EEEEEE">館内設備</td>
+		<td COLSPAN="3" BGCOLOR="#FFFFFF">
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/BUSINESS_CENTER[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/BUSINESS_CENTER'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/BUSINESS_ROOM[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/BUSINESS_ROOM'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/PARTY_HALL[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/PARTY_HALL'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/RESTAURANT[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/RESTAURANT'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/EXHIBITION_HALL[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/EXHIBITION_HALL'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/WEDDING[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/WEDDING'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/SHOP[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/SHOP'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/TEAHOUSE[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/TEAHOUSE'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/CAFE[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/CAFE'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/CONVSHOP[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/CONVSHOP'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/DRUG_STORE[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/DRUG_STORE'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/TENNIS[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/TENNIS'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/GOLF[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/GOLF'/><br/>
+			</xml:if>
+
+			<!-- check"
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/OUTDOOR_POOL[not(.='')]" >
+				14<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/OUTDOOR_POOL'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/INDOOR_POOL[not(.='')]" >
+				15<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/INDOOR_POOL'/><br/>
+			</xml:if>
+			-->
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/OPEN_AIR_SPRING[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/OPEN_AIR_SPRING'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/KASIKIRI_OPEN_AIR_SPRING[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/KASIKIRI_OPEN_AIR_SPRING'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/KASIKIRI_BATH[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/KASIKIRI_BATH'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/SAUNA[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/SAUNA'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/BATHROOM[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/BATHROOM'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/ARCADE[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/ARCADE'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/GAMECORNER[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/GAMECORNER'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/SUPPER[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/SUPPER'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/KARAOKE_SALON[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/KARAOKE_SALON'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/KARAOKE[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/KARAOKE'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/VENDING_MACHINE[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/VENDING_MACHINE'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/ICE_MACHIN[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/ICE_MACHIN'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/PLAYGROUND[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/PLAYGROUND'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/NIGHTCLUB[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/NIGHTCLUB'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/BAR[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/BAR'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/BAR_LOUNGE[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/BAR_LOUNGE'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/DANCE[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/DANCE'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/GYM[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/GYM'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/FITTNESS[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/FITTNESS'/><br/>
+			</xml:if>
+
+			<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/OTHER[not(.='')]" >
+				<xml:out select='$ROWSET//ROWSET/ROW/BUILDXML/OTHER'/><br/>
+			</xml:if>
+
+
+<!--<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/BUSINESS_CENTER[.=1]">ビジネスセンター<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/BUSINESS_ROOM[.=1]">会議室<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/PARTY_HALL[.=1]">宴会場<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/RESTAURANT[.=1]">レストラン<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/EXHIBITION_HALL[.=1]">展示場<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/WEDDING[.=1]">結婚式場<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/HAIR_SALON[.=1]">美容室<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/SHOP[.=1]">売店<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/TEAHOUSE[.=1]">茶室<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/CAFE[.=1]">コーヒーショップ<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/TEA_LOUNGE[.=1]">ティーラウンジ<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/CONVSHOP[.=1]">コンビニエンスストア<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/DRUG_STORE[.=1]">ドラッグストア<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/TENNIS[.=1]">テニスコート<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/GOLF[.=1]">ゴルフ場<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/OUTDOOR_POOL[.=1]">屋外プール<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/INDOOR_POOL[.=1]">屋内プール<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/OPEN_AIR_SPRING[.=1]">露天風呂<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/KASIKIRI_OPEN_AIR_SPRING[.=1]">貸切露天風呂<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/KASIKIRI_BATH[.=1]">貸切風呂<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/SAUNA[.=1]">サウナ<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/BATHROOM[.=1]">大浴場<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/ARCADE[.=1]">ショッピングアーケード<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/GAMECORNER[.=1]">ゲームコーナー<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/SUPPER[.=1]">夜食コーナー<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/KARAOKE_SALON[.=1]">カラオケサロン<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/KARAOKE[.=1]">カラオケルーム<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/VENDING_MACHINE[.=1]">自動販売機<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/ICE_MACHIN[.=1]">自動製氷機<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/PLAYGROUND[.=1]">児童遊園施設<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/NIGHTCLUB[.=1]">ナイトクラブ<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/BAR[.=1]">バー・スナック<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/BAR_LOUNGE[.=1]">バーラウンジ<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/DANCE[.=1]">ダンスホール<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/GYM[.=1]">スポーツジム<br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/BUILDXML/FITTNESS[.=1]">フィットネスクラブ<br/></xml:if>
+-->
+		</td>
+	</tr>
+	<tr>
+		<td CLASS="b" BGCOLOR="#EEEEEE">クレジットカード他</td>
+		<td COLSPAN="3" BGCOLOR="#FFFFFF">
+<xml:if select="$ROWSET//ROWSET/ROW/CARD1[not(.='0')]">
+	VISAカード<br/>
+</xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/CARD2='1'">
+	マスターカード<br/>
+</xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/CARD3='1'">
+	アメックスカード<br/>
+</xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/CARD4='1'">
+	ダイナーズカード<br/>
+</xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/CARRD5='1'">
+	JCBカード<br/>
+</xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/CARRD6[not(.='0')]">
+	<xml:out select='$ROWSET//ROWSET/ROW/CARDNM'/><br/></xml:if>
+<xml:if select="$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/DVCARD[not(.='')]">
+	<xml:out select='$ROWSET//ROWSET/ROW/SERVICEXML/SERVICE/DVCARD'/><br/>
+</xml:if>
+	</td>
+	</tr>
+
+	<xml:if select="$ROWSET//ROWSET/ROW/FRINGE2[not(.='')]" >
+	<tr>
+		<td CLASS="b" BGCOLOR="#EEEEEE">周辺情報</td>
+		<td COLSPAN="3" BGCOLOR="#FFFFFF"><xml:out select='$ROWSET//ROWSET/ROW/FRINGE2' escapeXml="false" /></td>
+	</tr>
+	</xml:if>
+
+	<xml:if select="$ROWSET//ROWSET/ROW/FRINGE1[not(.='')]" >
+	<tr>
+		<td CLASS="b" BGCOLOR="#EEEEEE">周辺観光情報</td>
+		<td COLSPAN="3" BGCOLOR="#FFFFFF"><xml:out select='$ROWSET//ROWSET/ROW/FRINGE1' escapeXml="false" /></td>
+	</tr>
+	</xml:if>
+
+	<tr>
+		<td CLASS="b" BGCOLOR="#EEEEEE">地図</td>
+		<td COLSPAN="3" BGCOLOR="#FFFFFF">
+		<span CLASS="b">
+		<a href="javascript:hotelpop('map1','map1','<xml:out select='$ROWSET//ROWSET/ROW/SUPNBR' />' );">詳細</a>
+		</span></td>
+	</tr>
+
+<xml:if select="$ROWSET//ROWSET/ROW/BATH1[not(.='')]">
+	<tr>
+		<td CLASS="b" BGCOLOR="#EEEEEE">お風呂</td>
+		<td COLSPAN="3" BGCOLOR="#FFFFFF">
+		<a href="javascript:hotelpop('bath','bath','<xml:out select='$ROWSET//ROWSET/ROW/SUPNBR'/>' );">詳細</a>
+		</td>
+	</tr>
+</xml:if>
+
+<!--
+	<tr>
+		<td CLASS="b" BGCOLOR="#EEEEEE">お食事</td>
+		<td COLSPAN="3" BGCOLOR="#FFFFFF"></td>
+		<xml:if select="$ROWSET//ROWSET/ROW/MEAL1[not(.='')]">
+				<span CLASS="b">
+					<a href="javascript:hotelpop('meal1','meal1','<xml:out select='$ROWSET//ROWSET/ROW/SUPNBR'/>' );">朝食例</a>
+					<img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""/>
+				</span>
+		</xml:if>
+		<xml:if select="$ROWSET//ROWSET/ROW/MEAL2[not(.='')]">
+				<span CLASS="b">
+					<a href="javascript:hotelpop('meal2','meal2','<xml:out select='$ROWSET//ROWSET/ROW/SUPNBR'/>' );">夕食例</a>
+					<img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""/>
+				</span>
+		</xml:if>
+		<xml:if select="$ROWSET//ROWSET/ROW/MEAL3[not(.='')]">
+				<span CLASS="b">
+					<a href="javascript:hotelpop('meal3','meal3','<xml:out select='$ROWSET//ROWSET/ROW/SUPNBR'/>' );">その他</a>
+		</xml:if>
+	</tr>
+-->
+
+
+
+</table>

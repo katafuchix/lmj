@@ -1,0 +1,217 @@
+<%@ page contentType="text/html; charset=Shift_JIS" %>
+<%@ page import="java.util.*, jp.co.lastminute.*" %>
+<%
+	jp.co.lastminute.menu.LinkMenu links = null;
+	String CATID = request.getParameter("CATID");
+	ServletContext servletContext = getServletContext();
+	HashMap categoryTable = (HashMap)servletContext.getAttribute( Contents.CATEGORY_TABLE_KEY );
+%>
+<html>
+<head>
+<title>navi</title>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Shift_JIS">
+<link REL="stylesheet" HREF="/basic.css" TYPE="TEXT/CSS">
+</head>
+<body BGCOLOR="#FFFFFF" TEXT="#000000" LEFTMARGIN="0" TOPMARGIN="0" MARGINWIDTH="0" MARGINHEIGHT="0">
+<img SRC="/img/menu_tab1.gif" WIDTH="147" HEIGHT="18" ALT=""><br>
+<table WIDTH="147" BORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="#FF3399">
+	<tr>
+		<td>
+			<table BORDER="0" CELLSPACING="0" CELLPADDING="2" WIDTH="100%">
+				<tr>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="1" HEIGHT="1" ALT=""></td>
+					<td BGCOLOR="#FFFFFF" HEIGHT="3"><img SRC="/img/shim.gif" WIDTH="10" HEIGHT="1" ALT=""></td>
+				</tr>
+				<tr bgcolor="#E3E0DA">
+					<td COLSPAN="2" CLASS="b"><img SRC="/img/shim.gif" WIDTH="3" HEIGHT="3">Specials</td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" ALIGN="RIGHT" width="12"><img SRC="/img/navi_mark.gif" WIDTH="7" HEIGHT="10" ALT="" HSPACE="1"></td>
+					<td BGCOLOR="#FFFFFF" width="135"><a href="http://www.lastminute.co.jp/lmj/index.jsp" target=_parent>HOME</a></td>
+				</tr>
+				<tr BGCOLOR="#FFFFFF">
+					<td><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+					<td CLASS="b"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+				</tr>
+				<tr bgcolor="#E3E0DA">
+					<td COLSPAN="2" CLASS="b"><img SRC="/img/shim.gif" WIDTH="3" HEIGHT="3">Travel</td>
+				</tr>
+				<tr BGCOLOR="#FFFFFF">
+					<td COLSPAN="2" CLASS="b"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+				</tr>
+				<tr BGCOLOR="#FFFFFF">
+					<td COLSPAN="2" CLASS="b"><img SRC="/img/shim.gif" WIDTH="3" HEIGHT="3">Domestic</td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" ALIGN="RIGHT"><img SRC="/img/navi_mark.gif" WIDTH="7" HEIGHT="10" ALT="" HSPACE="1"></td>
+					<td BGCOLOR="#FFFFFF"><%= links.createLinkMenu( categoryTable, "0" , CATID ) %></td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" ALIGN="RIGHT"><img SRC="/img/navi_mark.gif" WIDTH="7" HEIGHT="10" ALT="" HSPACE="1"></td>
+					<td BGCOLOR="#FFFFFF"><%= links.createLinkMenu( categoryTable, "2" , CATID ) %></td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" ALIGN="RIGHT"><img SRC="/img/navi_mark.gif" WIDTH="7" HEIGHT="10" ALT="" HSPACE="1"></td>
+					 <td BGCOLOR="#FFFFFF"><%= links.createLinkMenu( categoryTable, "1" , "1000" ) %></td>
+					<!-- <td BGCOLOR="#FFFFFF">国内バスツアー</td> -->
+				</tr>
+				<tr BGCOLOR="#ECF0DA">
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+				</tr>
+				<tr BGCOLOR="#FFFFFF">
+					<td CLASS="b" COLSPAN="2"><img SRC="/img/shim.gif" WIDTH="3" HEIGHT="3">Overseas</td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" ALIGN="RIGHT"><img SRC="/img/navi_mark.gif" WIDTH="7" HEIGHT="10" ALT="" HSPACE="1"></td>
+					<td BGCOLOR="#FFFFFF"><%= links.createLinkMenu( categoryTable, "12" , "1000" ) %></td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" ALIGN="RIGHT"><IMG src="img/navi_mark.gif" width="7" height="10" alt="" hspace="1"></td>
+					<td BGCOLOR="#FFFFFF"><%= links.createLinkMenu( categoryTable, "10" , CATID ) %></td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" ALIGN="RIGHT"><IMG src="img/navi_mark.gif" width="7" height="10" alt="" hspace="1"></td>
+					<td BGCOLOR="#FFFFFF"><%= links.createLinkMenu( categoryTable, "11" , CATID ) %></td>
+				</tr>
+				<tr align="left">
+					<td BGCOLOR="#FFFFFF"><IMG src="img/shim.gif" width="8" height="1" alt=""></td>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+				</tr>
+				<tr align="left">
+					<td BGCOLOR="#FFFFFF" class="b" colspan="2"><IMG src="img/shim.gif" width="3" height="3">Travel Support</td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" ALIGN="RIGHT"><IMG src="img/navi_mark.gif" width="7" height="10" alt="" hspace="1"></td>
+					<td BGCOLOR="#FFFFFF"><%= links.createLinkMenu( categoryTable, "300" , CATID ) %></td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+				</tr>
+				<tr bgcolor="#E3E0DA">
+					<td COLSPAN="2" CLASS="b"><img SRC="/img/shim.gif" WIDTH="3" HEIGHT="3">Entertainment</td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" ALIGN="RIGHT"><img SRC="/img/navi_mark.gif" WIDTH="7" HEIGHT="10" ALT="" HSPACE="1"></td>
+					<td BGCOLOR="#FFFFFF"><%= links.createLinkMenu( categoryTable, "91" , CATID ) %></td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" ALIGN="RIGHT"><img SRC="/img/navi_mark.gif" WIDTH="7" HEIGHT="10" ALT="" HSPACE="1"></td>
+					<td BGCOLOR="#FFFFFF"><%= links.createLinkMenu( categoryTable, "92" , CATID ) %></td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" ALIGN="RIGHT"><img SRC="/img/navi_mark.gif" WIDTH="7" HEIGHT="10" ALT="" HSPACE="1"></td>
+					<td BGCOLOR="#FFFFFF"><a href="http://www.lastminute.co.jp/act/act_cruise.html" target="_parent">アクティビティー</a></td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+				</tr>
+				<tr bgcolor="#E3E0DA">
+					<td COLSPAN="2" CLASS="b"><img SRC="/img/shim.gif" WIDTH="3" HEIGHT="3">Gifts</td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" ALIGN="RIGHT"><img SRC="/img/navi_mark.gif" WIDTH="7" HEIGHT="10" ALT="" HSPACE="1"></td>
+					<td BGCOLOR="#FFFFFF"><a href="/lmj/Gift/top.do">おすすめギフト開発中</a></td> 
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+				</tr>
+				<tr BGCOLOR="#E3E0DA">
+					<td COLSPAN="2" CLASS="b"><img SRC="/img/shim.gif" WIDTH="3" HEIGHT="3">From Our Network</td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" ALIGN="RIGHT" WIDTH="12"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+					<td BGCOLOR="#FFFFFF" WIDTH="135"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" ALIGN="RIGHT" WIDTH="12"><img SRC="/img/navi_mark.gif" WIDTH="7" HEIGHT="10" ALT="" HSPACE="1"></td>
+					<td BGCOLOR="#FFFFFF" WIDTH="135">
+						<P><a HREF="http://www.lastminute.com/lmn/pso/catalog/Category.jhtml?CATID=93329" target="_blank">ヨーロッパのホテル</a></P>
+					</td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" ALIGN="RIGHT" WIDTH="12">　</td>
+					<td BGCOLOR="#FFFFFF" WIDTH="135" VALIGN="MIDDLE">
+						<table BORDER="0" CELLSPACING="0" CELLPADDING="1">
+							<tr>
+								<td><span CLASS="txt10">(English Site)</span></td>
+								<td><span CLASS="txt10"><a HREF="http://www.lastminute.com/lmn/pso/catalog/Category.jhtml?CATID=93329" target="_blank"><img SRC="/img/eng.jpg" WIDTH="18" HEIGHT="11" BORDER="0"></a></span></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+		</td>
+	</tr>
+</table>
+<img SRC="/img/menu_under1_down.gif" WIDTH="147" HEIGHT="6" ALT=""><br>
+<img SRC="/img/shim.gif" WIDTH="10" HEIGHT="7" ALT=""><br>
+<img SRC="/img/shoping_tab1.gif" WIDTH="147" HEIGHT="18" BORDER="0" ALT=""><br>
+<table WIDTH="147" BORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="#FF3399">
+	<tr>
+		<td>
+			<table BORDER="0" CELLSPACING="0" CELLPADDING="2" WIDTH="100%">
+				<tr>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="1" HEIGHT="1" ALT=""></td>
+					<td BGCOLOR="#FFFFFF" HEIGHT="3"><img SRC="/img/shim.gif" WIDTH="10" HEIGHT="1" ALT=""></td>
+				</tr>
+				<tr BGCOLOR="#E3E0DA">
+					<td COLSPAN="2" CLASS="b"><img SRC="/img/shim.gif" WIDTH="3" HEIGHT="3">Shopping Support</td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" ALIGN="RIGHT" WIDTH="12"><img SRC="/img/navi_mark.gif" WIDTH="7" HEIGHT="10" ALT="" HSPACE="1"></td>
+					<td BGCOLOR="#FFFFFF" WIDTH="135"><a HREF="https://www.lastminute.co.jp/lmj/basket/cart.jsp?CATID=100" target="_parent">ギフトカートを見る<!--</a> --></td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" ALIGN="RIGHT" WIDTH="12"><img SRC="/img/navi_mark.gif" WIDTH="7" HEIGHT="10" ALT="" HSPACE="1"></td>
+					<td BGCOLOR="#FFFFFF" WIDTH="135"><!--a HREF="#"-->ヘルプ＆FAQ<!--/a--></td>
+				</tr>
+				<tr BGCOLOR="#FFFFFF">
+					<td><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+					<td CLASS="b"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+				</tr>
+				<tr BGCOLOR="#E3E0DA">
+					<td COLSPAN="2" CLASS="b"><img SRC="/img/shim.gif" WIDTH="3" HEIGHT="3">About Us</td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" ALIGN="RIGHT" WIDTH="12"><img SRC="/img/navi_mark.gif" WIDTH="7" HEIGHT="10" ALT="" HSPACE="1"></td>
+					<td BGCOLOR="#FFFFFF" WIDTH="135"><a HREF="http://www.lastminute.co.jp/profile/lm_co_top.html" target="_parent">会社概要</a></td>
+				</tr>
+				<tr>
+					<td BGCOLOR="#FFFFFF" ALIGN="RIGHT" WIDTH="12"><img SRC="/img/navi_mark.gif" WIDTH="7" HEIGHT="10" ALT="" HSPACE="1"></td>
+					<td BGCOLOR="#FFFFFF" WIDTH="135"><a HREF="http://www.lastminute.co.jp/profile/lm_co_5.html" target="_parent">プライバシーポリシー</a></td>
+				</tr>
+				<tr BGCOLOR="#ECF0DA">
+					<td BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+					<td CLASS="b" BGCOLOR="#FFFFFF"><img SRC="/img/shim.gif" WIDTH="8" HEIGHT="1" ALT=""></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<img SRC="/img/shoping_under1.gif" WIDTH="147" HEIGHT="6" ALT=""><BR>
+</body>
+</html>

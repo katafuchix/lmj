@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageaomount>
+<jan_cd>2220</jan_cd>
+<agt_product_cd>0</agt_product_cd>
+<agt_cd>LSTM</agt_cd>
+<product_type>93</product_type>
+<product_name><![CDATA[UCC COFFEE GIFT]]></product_name>
+<product_sub_title><![CDATA[商品概要サブタイトル（全角128文字）]]></product_sub_title>
+<catchcopy><![CDATA[キャッチコピ-（全角1000文字）キャッチコピ-（全角1000文字）キャッチコピ-（全角1000文字）キャッチコピ-（全角1000文字）キャッチコピ-（全角1000文字）キャッチコピ-（全角1000文字）]]></catchcopy>
+<price_catch><![CDATA[価格キャッチコピ-（全角250文字）]]></price_catch>
+<opening/>
+<specword><![CDATA[製品仕様（全角1000文字）]]></specword>
+<moreinfo><![CDATA[ご注意事項（全角1500文字）ご注意事項（全角1500文字）ご注意事項（全角1500文字）ご注意事項（全角1500文字）ご注意事項（全角1500文字）ご注意事項（全角1500文字）ご注意事項（全角1500文字）ご注意事項（全角1500文字）ご注意事項（全角1500文字）ご注意事項（全角1500文字）ご注意事項（全角1500文字）ご注意事項（全角1500文字）]]></moreinfo>
+<c_coment><![CDATA[サプライヤ-情報]]></c_coment>
+<body><![CDATA[ご案内（全角１５００文字/HTMLタグ使用可）
+<BR>テストテスト]]></body>
+<havealt>1</havealt>
+<price>0</price>
+<pricestr><![CDATA[0]]></pricestr>
+<tax>0</tax>
+<taxstr><![CDATA[0]]></taxstr>
+<sending>0</sending>
+<sending_tax>0</sending_tax>
+<sending_calc_unit>0</sending_calc_unit>
+<sending_date><![CDATA[3]]></sending_date>
+<sending_days><![CDATA[3]]></sending_days>
+<first_name><![CDATA[株式会社　ラストミニット・ドット・コム　直販用]]></first_name>
+<lastname/>
+<linkedurl><![CDATA[www.lastminute.co.jp]]></linkedurl>
+<linkedurlvalue><![CDATA[リンクURL（半角128文字）]]></linkedurlvalue>
+<textvalue><![CDATA[タイトル]]></textvalue>
+</pageaomount>

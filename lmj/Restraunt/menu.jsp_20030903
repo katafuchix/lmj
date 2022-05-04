@@ -1,0 +1,421 @@
+<%@ page contentType="text/html;charset=Shift_JIS" %>
+<%@ page language="java" %>
+<%@ page import="java.io.*,
+								 java.util.*,
+								 java.text.*,
+								 jp.co.yobrain.util.*,
+								 jp.co.lastminute.cart.*,
+								 jp.co.lastminute.cart.model.*,
+								 jp.co.lastminute.cart.user.*,
+								 jp.co.lastminute.cart.util.MemberFormatForWeb,
+								 jp.co.lastminute.Restraunt.*,
+								 jp.co.lastminute.Restraunt.node.*,
+								 jp.co.lastminute.Restraunt.allot.*,
+								 jp.co.lastminute.Restraunt.model.Form" %>
+<%@ taglib uri="/WEB-INF/struts-html.tld"	prefix="html" %>
+<%@ taglib uri="/WEB-INF/c.tld" prefix="c" %><%@ taglib uri="/WEB-INF/x.tld" prefix="xml" %>
+<%@ taglib uri="/WEB-INF/fmt.tld" prefix="fmt" %>
+<%
+	String menuXmlStr = "";
+	String detailXmlStr = "";
+	String restaurant = "";
+	String restaurantName = "";
+	Form form = (Form)request.getAttribute( "Restraunt.model.Form" );
+	if( form != null ){
+		menuXmlStr = form.getMenuWindowXmlStr();
+		detailXmlStr = form.getDetailXmlStr();
+	}
+%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+	<HEAD>
+		<TITLE>詳細情報</TITLE>
+		<META content="text/html; charset=Shift_JIS" http-equiv=Content-Type>
+		<LINK href="/basic.css" rel=stylesheet type=text/css>
+		<META content="MSHTML 5.00.2614.3500" name=GENERATOR>
+
+
+<!--レストラン詳細のXMLパース-->
+<c:set var="detailstr" ><%= detailXmlStr %></c:set>
+<xml:parse var="restdetail" xml="${detailstr}"></xml:parse>
+
+<!--メニュー詳細のXMLパース-->
+<c:set var="menustr" ><%= menuXmlStr %></c:set>
+<xml:parse var="restmenu" xml="${menustr}"></xml:parse>
+<!--
+<%=menuXmlStr%>
+-->
+
+<STYLE TYPE="text/css">
+.pre { white-space:pre;}
+</STYLE>
+
+<SCRIPT language="javascript">
+<!--
+
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+	  window.open(theURL,winName,features);
+}
+
+/* 地図ページ */
+function newwin2(){
+	MM_openBrWindow( '/lmj/Restraunt/map.do?restaurant=<xml:out select="$restdetail//restaurant" />', 'MAP', "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=550");
+}
+
+//-->
+</SCRIPT>
+</HEAD>
+
+
+
+<body BGCOLOR="#FFFFFF" TEXT="#000000" LEFTMARGIN="0" TOPMARGIN="0" MARGINWIDTH="0" MARGINHEIGHT="0" align=center>
+
+<TABLE border=0 cellPadding=0 cellSpacing=0 width=500>
+	<TBODY>
+	<TR>
+		<TD width=104 height="209">　 </TD>
+		<TD vAlign=top width=442 height="209">
+
+			<TABLE border=0 cellPadding=0 cellSpacing=0 width=442>
+			<TBODY>
+				<TR>
+			  	<TD>
+						<IMG height=32 src="/image/sp.gif" width=1>
+						<A name=top></A>
+					</TD>
+				</TR>
+
+				<TR bgColor=#F3F0EA>
+					<TD height=20>
+						<TABLE border=0 cellPadding=2 cellSpacing=0 height=20 width="100%">
+						<TBODY>
+							<TR>
+                <TD CLASS="super14">
+									<!--店名-->
+									<xml:out select="$restdetail//restaurantname" escapeXml="false" />
+　								（<xml:out select="$restdetail//restaurantnameeng" escapeXml="false" />） 詳細情報
+								</TD>
+							</TR>
+						</TBODY>
+						</TABLE>
+					</TD>
+				</TR>
+
+				<TR>
+					<TD>
+						<TABLE bgColor=#F3F0EA border=0 cellPadding=1 cellSpacing=0 width="100%">
+						<TBODY>
+							<TR vAlign=top>
+								<TD>
+									<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+									<TBODY>
+										<TR>
+											<TD bgColor=#F3F0EA height=20 width=210>&nbsp;</TD>
+											<TD background=/image/back_undercontents_2.gif rowSpan=2 width=215>
+												<TABLE border=0 cellPadding=15 cellSpacing=0 width=215>
+												<TBODY>
+													<TR>
+														<TD>
+															<!--A class=link3 href="#1">■予約情報</A><BR-->
+															<A class=link3 href="#2">■コースの特徴</A><BR>
+                              <A class=link3 href="#5">■コースのご紹介</A> <BR>
+                              <A class=link3 href="#7">■ほかご案内</A><BR>
+															<A class=link3 href="javascript:newwin2()">■地図</A><BR>																
+														</TD>
+													</TR>
+												</TBODY>
+												</TABLE>
+											</TD>
+										</TR>
+										<TR>
+											<TD background=/image/back_undercontents_2.gif vAlign=top width=210 height="115">
+												<TABLE border=0 cellPadding=15 cellSpacing=0 width=210>
+												<TBODY>
+													<TR>
+														<TD>
+															<SPAN class=text9s>■右の項目をクリックして頂きますと、各項目へ移動致します。<BR><BR><BR></SPAN>
+														</TD>
+													</TR>
+												</TBODY>
+												</TABLE>
+											</TD>
+										</TR>
+										</TBODY>
+									</TABLE>
+								</TD>
+							</TR>
+							</TBODY>
+						</TABLE>
+					</TD>
+				</TR>
+				</TBODY>
+			</TABLE>
+		</TD>
+	</TR>
+</TBODY>
+</TABLE>
+
+<TABLE border=0 cellPadding=0 cellSpacing=0 (2) width=500>
+	<TBODY>
+	<TR>
+		<TD width=104>　 </TD>
+		<TD vAlign=top width=442>
+			<TABLE border=0 cellPadding=0 cellSpacing=0 width=500>
+				<TBODY>
+				<TR>
+					<TD>
+						<TABLE border=0 cellPadding=0 cellSpacing=0 width=500>
+							<TBODY>
+							<TR align=right>
+								<TD>
+									<BR>
+									<A href="javascript:window.close()">
+									<img SRC="/img/res_img/close_button.gif" WIDTH="58" HEIGHT="18" BORDER="0"></A><BR>
+									<IMG height=1 src="/image/bar_3.gif" width=500>
+								</TD>
+							</TR>
+							</TBODY>
+						</TABLE>
+					</TD>
+				</TR>
+				</TBODY>
+			</TABLE>
+		</TD>
+	</TR>
+</TBODY>
+</TABLE>
+
+
+<!--各コンテンツは下記をコピーして編集-->
+<body BGCOLOR="#FFFFFF" TEXT="#000000" LEFTMARGIN="0" TOPMARGIN="0" MARGINWIDTH="0" MARGINHEIGHT="0" align=center>
+
+<TABLE border=0 cellPadding=0 cellSpacing=0 width=500>
+	<TBODY>
+	<TR>
+		<TD width=104 height="209">　 </TD>
+		<TD vAlign=top width=442 height="209">
+
+			<TABLE border=0 cellPadding=0 cellSpacing=0 width=442>
+			<TBODY>
+				<TR>
+			  	<TD>
+						<IMG height=32 src="/image/sp.gif" width=1>
+						<A name=top></A>
+					</TD>
+				</TR>
+				<TR>
+			  	<TD>
+						<FONT class=text11 color=#cc3300><A name=2></A><B>■特徴</B></FONT><BR>
+		        <SPAN class=text9s><xml:out select="$restdetail//comment_title" escapeXml="false" /></SPAN><br><br>
+					</TD>
+				</TR>
+				<TR>
+					<TD>
+          	<p><FONT class=text11 color=#cc3300><B><A name=7></A>■ほかご案内</B></FONT><BR>
+            <SPAN class=text9s><xml:out select="$restdetail//mood" escapeXml="false" /><br>
+            </SPAN></p>
+            <p> <FONT class=text10b color=#164916>●コンセプト</FONT><br>
+            <SPAN class=text9s><xml:out select="$restdetail//consept" escapeXml="false" /></SPAN><br>
+            </p>
+          </TD>
+				</TR>
+				<TR>
+			    <TD>
+						<xml:if select="$restdetail//table_num[not(.='')] ">
+						<FONT class=text10b color=#164916>●座席数</FONT>&nbsp;<br>
+			      <span class=text9s><xml:out select="$restdetail//table_num" /></span>&nbsp;&nbsp;<br>
+						</xml:if>
+
+						<xml:if select="$restdetail//vip[not(.='')] ">
+						<FONT class=text10b color=#164916>●個室</FONT>&nbsp;<br>
+			      <SPAN class=text9s><xml:out select="$restdetail//vip" /></SPAN>&nbsp;&nbsp;<br>
+						</xml:if>
+
+						<!--<FONT class=text10b color=#164916>●貸切</FONT>&nbsp;
+			      <SPAN class=text9s><xml:out select="$restdetail//rental" /></SPAN>&nbsp;&nbsp;-->
+
+						<xml:if select="$restdetail//closed[not(.='')] ">
+						<FONT class=text10b color=#164916>●定休日</FONT>&nbsp;<br>
+			      <SPAN class=text9s><xml:out select="$restdetail//closed" /></SPAN>&nbsp;&nbsp;<br>
+						</xml:if>
+
+						<xml:if select="$restdetail//parking[not(.='')] ">
+						<FONT class=text10b color=#164916>●駐車場</font>&nbsp;<br>
+			      <SPAN class=text9s><xml:out select="$restdetail//parking" /></SPAN><br><br>
+						</xml:if>
+
+			    </TD>
+			  </TR>
+
+
+
+
+				<TR>
+					<TD><hr size='1'/></TD>
+				</TR>
+				<TR align=right>
+					<TD class=text8>
+						<A href="#top"><img src='/img/b_back.gif' width=56 height=20 border=0></A><BR>
+					</TD>
+				</TR>
+				<TR>
+					<TD><br/><br/></TD>
+				</TR>
+
+				<xml:if select="$restdetail//excellentpiece[not(.='')] ">
+				<TR>
+			  	<TD>
+			    	<FONT class=text11 color=#cc3300><B>■メニュー</B></FONT><br>
+			      <FONT class=text10b color=#164916> ●予算例</FONT><BR>
+			      <SPAN class=text9s><xml:out select="$restdetail//budgetexsample" escapeXml="false" /><br>
+			      </span>
+			      <FONT class=text10b color=#164916>●メニュー例</FONT><br>
+			      <SPAN class=text9s><xml:out select="$restdetail//excellentpiece" escapeXml="false"  /><br>
+			      </span><br>
+					</TD>
+				</TR>
+				</xml:if>
+
+				<TR>
+					<TD><hr size='1'/></TD>
+				</TR>
+					<TR align=right>
+								<TD class=text8>
+									<A href="#top"><img src='/img/b_back.gif' width=56 height=20 border=0></A>
+								</TD>
+							</TR>
+						</TBODY>
+						</TABLE>
+					</TD>
+				</TR>
+			</TBODY>
+			</TABLE>
+
+
+			<TABLE border=0 cellPadding=0 cellSpacing=0 width=500>
+				<TBODY>
+				<TR>
+					<TD width=104 height="209">　 </TD>
+					<TD vAlign=top width=442 height="209">
+
+						<TABLE border=0 cellPadding=0 cellSpacing=0 width=442>
+						<TBODY>
+							<TR>
+						  	<TD>
+									<IMG height=32 src="/image/sp.gif" width=1>
+									<A name=top></A>
+								</TD>
+							</TR>
+							<TR>
+						  	<TD>
+									<FONT class=text11 color=#cc3300><A name=5></A><B>■コースのご紹介</B></FONT>
+									
+									<c:set var="ii">0</c:set>
+									<xml:forEach select="$restmenu//menu">
+
+									<A name="menu<xml:out select='id' />"></A>
+									<br/>
+									<table border=0 border=0 cellPadding=0 cellSpacing=0 width=100%>
+										<tr>
+									  	<td width='180' valign='top'><IMG align=left height=130 src="<xml:out select="imguri" escapeXml="false" />" width=176></td>
+									  	<td valign='top'><FONT class=text11 color=#164916><B>■<xml:out select="name" escapeXml="false" />■</B></FONT><BR>
+									    	<SPAN class=text9s><xml:out select="onepoint"  escapeXml="false" /></span><BR clear=left>
+									      <SPAN class=text9s><xml:out select="c_comment"  escapeXml="false" /></span><BR clear=left>
+											</td>
+									   </tr>
+									</table>
+									
+									<c:set var="ii"><c:out value="${ii+1}" /></c:set>
+									</xml:forEach>
+
+									<br>
+									<% int intCnt = 0; %>
+									<xml:forEach select="$restmenu//option">
+										<% intCnt++; %>
+									</xml:forEach>
+									
+									<!--intCnt<%= intCnt %>-->
+
+									<% if (intCnt>0) {%>
+									<FONT class=text11 color=#cc3300><B><A name=6></A>■オプションメニュー</B></FONT>
+									
+									<c:set var="jj">0</c:set>
+									<xml:forEach select="$restmenu//option">
+
+									<A name="menu<xml:out select='id' />"></A>
+									<br/>
+									<table border=0 border=0 cellPadding=0 cellSpacing=0 width=100%>
+										<tr>
+											<td width='180' valign='top'><IMG align=left height=130 src="<xml:out select="imguri"  escapeXml="false" />" width=176></td>
+											<td valign='top'><FONT class=text11 color=#164916><B>■<xml:out select="name"  escapeXml="false" />■</B></FONT><BR>
+									    	<SPAN class=text9s><xml:out select="onepoint" escapeXml="false" /></span><BR clear=left>
+									      <SPAN class=text9s><xml:out select="c_comment" escapeXml="false" /></span><BR clear=left>
+									    </td>
+									   </tr>
+									</table>
+
+									<c:set var="jj"><c:out value="${jj+1}" /></c:set>
+									</xml:forEach>
+									<% } %>
+								
+								</TD>
+							</TR>
+							<TR>
+								<TD><hr size='1'/></TD>
+							</TR>
+							<TR align=right>
+								<TD class=text8>
+									<A href="#top"><img src='/img/b_back.gif' width=56 height=20 border=0></a>
+								</TD>
+							</TR>
+						</TBODY>
+						</TABLE>
+					</TD>
+				</TR>
+			</TBODY>
+			</TABLE>
+		</TR>
+	</TBODY>
+</TABLE>
+<!--<TABLE border=0 cellPadding=0 cellSpacing=0 width=500>
+	<TBODY>
+	<TR>
+		<TD width=104>　 </TD>
+		<TD vAlign=top width=442>
+			<TABLE border=0 cellPadding=0 cellSpacing=0 width=500>
+				<TBODY>
+				<TR>
+					<TD width=104>　 </TD>
+					<TD vAlign=top width=442>
+						<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+							<TBODY>
+								<TD colspan='3'><hr size='1'/></TD>
+							<TR>
+								<TD width=8></TD>
+                <TD width=426>
+                  <p><FONT class=text11 color=#cc3300><B><A name=7></A>■店内・内装について</B></FONT><BR>
+                    <SPAN class=text9s><xml:out select="$restdetail//mood" /><br>
+                    </SPAN></p>
+                  <p> <FONT class=text10b color=#164916>●コンセプト</FONT><br>
+                    <SPAN class=text9s><xml:out select="$restdetail//consept" /></SPAN><br>
+                  </p>
+                  </TD>
+								<TD width=8></TD>
+							</TR>
+							<TR align=right>
+								<TD class=text8 colSpan=3>
+									<A href="#top"><img src='/img/b_back.gif' width=56 height=20 border=0></A><BR>
+								</TD>
+							</TR>
+							</TBODY>
+						</TABLE>
+					</TD>
+				</TR>
+				</TBODY>
+			</TABLE>
+		</TD>
+	</TR>
+	</TBODY>
+</TABLE>-->
+</BODY>
+</HTML>

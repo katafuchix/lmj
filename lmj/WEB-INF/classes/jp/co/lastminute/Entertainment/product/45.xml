@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageaomount>
+<product_seq>45</product_seq>
+<jan_cd/>
+<group_cd>0</group_cd>
+<ticket_type>1</ticket_type>
+<agt_cd>TOK</agt_cd>
+<product_type>99</product_type>
+<type_names><![CDATA[LMJチケット]]></type_names>
+<product_name><![CDATA[＜チケット郵送＞来生たかお]]></product_name>
+<product_sub_title><![CDATA[ソロライブ　stand Alone2003]]></product_sub_title>
+<catchcopy><![CDATA[ソロライブ　stand Alone2003]]></catchcopy>
+<price_catch/>
+<opening><![CDATA[来生たかおHP]]></opening>
+<actors/>
+<produce><![CDATA[来生たかお]]></produce>
+<play_place><![CDATA[東京芸術劇場中ホ-ル]]></play_place>
+<pointofaccess><![CDATA[JR・東武・西武・営団とも「池袋」で下車。
+西口から徒歩2分。
+池袋駅南地下通路から直接劇場に来られます。]]></pointofaccess>
+<accesspoint_url><![CDATA[http://www.geigeki.jp/]]></accesspoint_url>
+<description><![CDATA[■チケットは提携サプライヤ-からご郵送致します。
+■購入後の返品・内容のご変更は承れません。予めご了承下さい。
+]]></description>
+<image_01_url/>
+<image_01_url_1/>
+<image_01_url_2/>
+<image_01_url_3/>
+<stop_flg>0</stop_flg>
+<linkedurl><![CDATA[http://www.takao-kisugi.com/]]></linkedurl>
+<event_names><![CDATA[ソロライブ　stand Alone2003]]></event_names>
+<type_names><![CDATA[ＪＰＯＰ]]></type_names>
+<first_name><![CDATA[音響てすと]]></first_name>
+<lastname><![CDATA[音響てすとたんとう]]></lastname>
+</pageaomount>

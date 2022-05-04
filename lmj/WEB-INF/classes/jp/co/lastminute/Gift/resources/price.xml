@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageamount>
+<today>2003/06/19</today>
+<types>2</types>
+<todaynumber>20030619</todaynumber>
+<title><![CDATA[5,000円未満の商品]]></title>
+<products>
+<topix>
+<production>
+<plan>
+<catid>93</catid>
+<scatid>9320</scatid>
+<title><![CDATA[5,000円未満の商品]]></title>
+<scatid_catch_copy><![CDATA[5,000円未満の商品]]></scatid_catch_copy>
+<scatid_description><![CDATA[アルパインシルク　リップクリーム＆ハンドローション　ほか]]></scatid_description>
+</plan>
+<product>
+<prod_id>1273</prod_id>
+<agt_cd/>
+<supnbr/>
+<name><![CDATA[東京ぽんたの詰め合わせセット]]></name>
+<copy>
+<comment><![CDATA[キャッチコピ-]]></comment>
+<price><![CDATA[2000]]></price>
+<pricestr><![CDATA[2,000]]></pricestr>
+</copy>
+</product>
+</production>
+<production>
+<plan>
+<catid>93</catid>
+<scatid>9319</scatid>
+<title><![CDATA[5,000円以上　10,000円未満の商品]]></title>
+<scatid_catch_copy><![CDATA[5,000円以上　10,000円未満の商品]]></scatid_catch_copy>
+<scatid_description><![CDATA[ケンコー双眼鏡　ほか]]></scatid_description>
+</plan>
+<product>
+<prod_id>1133</prod_id>
+<agt_cd/>
+<supnbr/>
+<name><![CDATA[アルミアタッシュカードケース]]></name>
+<copy>
+<comment><![CDATA[ビジネスシーンで人気のアルミケースをデザインに活かしたミニカードケース。]]></comment>
+<price><![CDATA[5800]]></price>
+<pricestr><![CDATA[5,800]]></pricestr>
+</copy>
+</product>
+</production>
+<production>
+<plan>
+<catid>93</catid>
+<scatid>9317</scatid>
+<title><![CDATA[10,000円以上　20,000円未満の商品]]></title>
+<scatid_catch_copy><![CDATA[10,000円以上　20,000円未満の商品]]></scatid_catch_copy>
+<scatid_description><![CDATA[トリプルサック　ほか]]></scatid_description>
+</plan>
+<product>
+<prod_id>1084</prod_id>
+<agt_cd/>
+<supnbr/>
+<name><![CDATA[バカラ　カプリ　ワイングラス　（S）　ペア]]></name>
+<copy>
+<comment><![CDATA[ジュ-ンブライドの贈り物に最適です!]]></comment>
+<price><![CDATA[16900]]></price>
+<pricestr><![CDATA[16,900]]></pricestr>
+</copy>
+</product>
+</production>
+</topix>
+<list>
+<production>
+<plan>
+<catid>93</catid>
+<scatid>9321</scatid>
+<title><![CDATA[20,000円以上の商品]]></title>
+<scatid_catch_copy><![CDATA[20,000円以上の商品]]></scatid_catch_copy>
+<scatid_description><![CDATA[デロンギ　エスプレッソ ＆カプチーノメーカー　ほか]]></scatid_description>
+</plan>
+<product>
+<prod_id>1199</prod_id>
+<agt_cd/>
+<supnbr/>
+<name><![CDATA[パナソニック　　WiLL BIKE A12.5インチ折りたたみ自転車]]></name>
+<copy>
+<comment><![CDATA[Ｆ-１レーシングカーと同じ中空アルミモノコックフレームを採用した「ＷｉＬＬ
+Ｂｉｋｅ」です。
+今回は３０％Ｏｆｆでご紹介します。
+]]></comment>
+<price><![CDATA[35000]]></price>
+<pricestr><![CDATA[35,000]]></pricestr>
+</copy>
+</product>
+</production>
+<production>
+<plan>
+<catid>93</catid>
+<scatid>9319</scatid>
+<title><![CDATA[5,000円以上　10,000円未満の商品]]></title>
+<scatid_catch_copy><![CDATA[5,000円以上　10,000円未満の商品]]></scatid_catch_copy>
+<scatid_description><![CDATA[ケンコー双眼鏡　ほか]]></scatid_description>
+</plan>
+<product>
+<prod_id>1115</prod_id>
+<agt_cd/>
+<supnbr/>
+<name><![CDATA[ビタントニオ　ワッフル＆ホットサンドメーカー]]></name>
+<copy>
+<comment><![CDATA[ワッフル、ホットサンド、お餅が焼ける便利なパンです。定価の２０％ＯＦＦでご紹介します。]]></comment>
+<price><![CDATA[7980]]></price>
+<pricestr><![CDATA[7,980]]></pricestr>
+</copy>
+</product>
+</production>
+<production>
+<plan>
+<catid>93</catid>
+<scatid>9317</scatid>
+<title><![CDATA[10,000円以上　20,000円未満の商品]]></title>
+<scatid_catch_copy><![CDATA[10,000円以上　20,000円未満の商品]]></scatid_catch_copy>
+<scatid_description><![CDATA[トリプルサック　ほか]]></scatid_description>
+</plan>
+<product>
+<prod_id>1084</prod_id>
+<agt_cd/>
+<supnbr/>
+<name><![CDATA[バカラ　カプリ　ワイングラス　（S）　ペア]]></name>
+<copy>
+<comment><![CDATA[ジュ-ンブライドの贈り物に最適です!]]></comment>
+<price><![CDATA[16900]]></price>
+<pricestr><![CDATA[16,900]]></pricestr>
+</copy>
+</product>
+</production>
+<production>
+<plan>
+<catid>93</catid>
+<scatid>9321</scatid>
+<title><![CDATA[20,000円以上の商品]]></title>
+<scatid_catch_copy><![CDATA[20,000円以上の商品]]></scatid_catch_copy>
+<scatid_description><![CDATA[デロンギ　エスプレッソ ＆カプチーノメーカー　ほか]]></scatid_description>
+</plan>
+<product>
+<prod_id>1112</prod_id>
+<agt_cd/>
+<supnbr/>
+<name><![CDATA[デロンギ　エスプレッソ ＆カプチーノメーカー]]></name>
+<copy>
+<comment><![CDATA[業務用と同じポンプ抽出でこの値段！なんと言っても魅力は特許を取得している独自のIFDシステム。
+なんとっ！定価の４３％ＯＦＦでご紹介します。]]></comment>
+<price><![CDATA[39800]]></price>
+<pricestr><![CDATA[39,800]]></pricestr>
+</copy>
+</product>
+</production>
+</list>
+</products>
+</pageamount>

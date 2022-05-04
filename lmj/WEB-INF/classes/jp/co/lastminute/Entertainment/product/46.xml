@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageaomount>
+<product_seq>46</product_seq>
+<jan_cd/>
+<group_cd>0</group_cd>
+<ticket_type>1</ticket_type>
+<agt_cd>TOK</agt_cd>
+<product_type>99</product_type>
+<type_names><![CDATA[LMJチケット]]></type_names>
+<product_name><![CDATA[＜チケット郵送＞坂本冬美]]></product_name>
+<product_sub_title><![CDATA[心をこめて・・・ふたたび]]></product_sub_title>
+<catchcopy><![CDATA[心をこめて・・・ふたたび]]></catchcopy>
+<price_catch/>
+<opening><![CDATA[公演会場HP]]></opening>
+<actors/>
+<produce/>
+<play_place><![CDATA[東京厚生年金会館]]></play_place>
+<pointofaccess><![CDATA[新宿駅（JR・私鉄他）都営バス新宿西口より練馬
+車庫行き厚生年金会館下車または徒歩15分
+新宿御苑前・新宿三丁目駅　下車徒歩5分]]></pointofaccess>
+<accesspoint_url><![CDATA[http://www.kjp.or.jp/hp_20/access.htm]]></accesspoint_url>
+<description><![CDATA[■チケットは提携サプライヤ-からご郵送致します。尚、配送作業上、
+　購入前にご選択頂く日時の指定通りに届かない可能性がございます。
+　予めご了承下さい。
+■購入後の返品・内容のご変更は承れません。予めご了承下さい。
+]]></description>
+<image_01_url/>
+<image_01_url_1/>
+<image_01_url_2/>
+<image_01_url_3/>
+<stop_flg>0</stop_flg>
+<linkedurl><![CDATA[http://www.kjp.or.jp/hp_20/]]></linkedurl>
+<event_names/>
+<type_names><![CDATA[ＪＰＯＰ]]></type_names>
+<first_name><![CDATA[音響てすと]]></first_name>
+<lastname><![CDATA[音響てすとたんとう]]></lastname>
+</pageaomount>
